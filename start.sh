@@ -41,8 +41,15 @@ echo "🚀 Launching ComfyUI on port 8188 (detached)..."
 nohup python main.py --listen --port 8188 > /workspace/comfyui.log 2>&1 &
 
 # ⏳ Wait for ComfyUI to finish loading
-echo "⏳ Waiting 30 seconds for ComfyUI to fully boot..."
-sleep 20
+echo "⏳ Waiting for ComfyUI to fully boot..."
+for i in {1..30}; do
+    if curl -s http://localhost:8188 > /dev/null; then
+        echo "✅ ComfyUI is ready!"
+        break
+    fi
+    echo "⏳ Still waiting... ($i/30)"
+    sleep 1
+done
 
 # 🛠 Final Instructions
 echo ""
