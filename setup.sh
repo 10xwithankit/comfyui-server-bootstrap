@@ -62,6 +62,7 @@ echo ""
 echo "⬆️  Installing pip..."
 python -m ensurepip --upgrade
 pip install --upgrade pip
+pip install matplotlib opencv-python mediapipe scipy
 
 # 📂 Move into ComfyUI directory
 cd ComfyUI
