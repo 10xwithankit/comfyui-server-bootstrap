@@ -18,7 +18,7 @@ echo ""
 echo "📦 Updating system & installing base tools..."
 apt-get update -y && apt-get upgrade -y
 apt-get install -y git python3-venv curl unzip aria2 nano
-apt-get install -y debian-keyring debian-archive-keyring apt-transport-https gnupg lsb-release
+apt-get install -y debian-keyring debian-archive-keyring apt-transport-https gnupg lsb-release netcat
 # 🧹 Remove old Caddy GPG key if exists
 if [ -f "/usr/share/keyrings/caddy-stable-archive-keyring.gpg" ]; then
     echo "🧹 Removing existing Caddy GPG key..."
